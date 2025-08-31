@@ -1,0 +1,76 @@
+/* ===== Página legal (look & feel del sitio) ===== */
+.legal-page {
+  background: #f8fafc;           /* gris suave como tus secciones alt */
+  padding: 4rem 1.5rem;          /* mismo ritmo que .section */
+}
+
+.legal-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.legal-title {
+  margin: 0 0 .5rem 0;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: #4338ca;                /* violeta de marca */
+  font-size: clamp(2rem, 3.8vw, 2.5rem);
+}
+
+.legal-subtitle {
+  color: #4b5563;
+  max-width: 48rem;
+  margin: 0 auto;
+}
+
+/* Tarjeta blanca centrada */
+.legal-card {
+  max-width: 960px;
+  margin: 2rem auto 0;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 20px 25px -5px rgba(0,0,0,.1), 0 10px 10px -5px rgba(0,0,0,.04);
+  padding: clamp(1rem, 3vw, 2rem);
+  line-height: 1.75;
+  color: #111827;
+}
+
+.legal-card p + p {
+  margin-top: 1rem;
+}
+
+.legal-list {
+  margin: .75rem 0 1.25rem 1.25rem;
+  color: #374151;
+}
+
+.legal-card a {
+  color: #4f46e5;
+  text-decoration: underline;
+}
+.legal-card a:hover { color: #3730a3; }
+
+/* Acción inferior */
+.legal-actions {
+  max-width: 960px;
+  margin: 1.5rem auto 0;
+  display: flex;
+  justify-content: center;
+}
+
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: .4rem;
+  padding: .65rem 1rem;
+  border-radius: 999px;
+  color: #4338ca;
+  background: #eef2ff;           /* indigo-100 */
+  text-decoration: none;
+  font-weight: 700;
+  transition: transform .15s ease, background .2s ease;
+}
+.btn-ghost:hover {
+  background: #e0e7ff;
+  transform: translateY(-1px);
+}

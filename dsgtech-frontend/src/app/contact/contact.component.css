@@ -1,0 +1,104 @@
+/* ===== ContactComponent (solo estilos del formulario de contacto) ===== */
+
+:host {
+  display: block;
+}
+
+/* Contenedor del formulario: pequeño y centrado */
+.contact {
+  width: 92%;
+  max-width: 420px;       /* tamaño compacto */
+  margin: 0 auto;         /* centrado */
+}
+
+/* Tarjeta del formulario */
+.contact__form {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+  padding: 1.2rem;        /* padding compacto */
+  text-align: left;
+}
+
+/* Campos */
+.field { margin-top: 1rem; }
+
+.field__label {
+  font-weight: 600;
+  font-size: .85rem;
+  color: #374151;
+}
+
+.field__input {
+  margin-top: .35rem;
+  width: 100%;
+  padding: .6rem .8rem;
+  font-size: .9rem;
+  border: 1px solid #d1d5db;
+  border-radius: .45rem;
+  outline: none;
+  transition: box-shadow .15s ease, border-color .15s ease;
+}
+
+.field__input:focus {
+  border-color: #25D366;
+  box-shadow: 0 0 0 2px rgba(37, 211, 102, .18);
+}
+
+/* Botón Enviar */
+.btn--brand {
+  background-color: #4f46e5;
+  color: #fff;
+  border: none;
+  width: 100%;
+  margin-top: 1rem;
+  border-radius: 999px;
+  padding: .65rem;
+  font-size: .95rem;
+  font-weight: 600;
+  transition: background .2s ease, transform .1s ease;
+}
+
+.btn--brand:hover { background-color: #3730a3; }
+.btn--brand:active { transform: translateY(1px); }
+
+/* Botones WhatsApp */
+.wa-buttons {
+  display: flex;
+  justify-content: center;
+  gap: .8rem;
+  margin-top: 1.2rem;
+  flex-wrap: wrap;
+}
+
+.btn--whatsapp {
+  background: #25D366;
+  color: #fff;
+  display: inline-flex;
+  align-items: center;
+  gap: .45rem;
+  padding: .55rem 1rem;
+  border-radius: .55rem;
+  font-size: .88rem;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 4px 10px rgba(37,211,102,.22);
+  transition: transform .15s ease, box-shadow .15s ease, background .15s ease;
+}
+
+.btn--whatsapp:hover {
+  background: #1ebe5d;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(37,211,102,.28);
+}
+
+.wa-icon img {
+  width: 18px;
+  height: 18px;
+  display: block;
+}
+
+/* Un poquito más de ancho en pantallas medianas */
+@media (min-width: 480px) {
+  .contact { max-width: 460px; }
+}

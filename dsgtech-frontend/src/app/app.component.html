@@ -1,0 +1,261 @@
+<!-- ✅ Sitio completo (solo cuando NO es una página legal) -->
+<ng-container *ngIf="!isLegalPage">
+  <div class="site">
+    <!-- NAVBAR -->
+    <nav class="nav" [class.nav--compact]="isScrolled">
+      <div class="nav__wrap container">
+        <!-- IZQUIERDA: Logo -->
+        <div class="nav__left">
+          <a href="#home" class="brand-logo">
+            <img src="assets/logo-nuestro3.png" alt="Logo DSGTech" class="nav-logo" />
+          </a>
+        </div>
+
+        <!-- CENTRO: título -->
+        <div class="nav__center">
+          <span class="nav__title">DSGTech</span>
+        </div>
+
+        <!-- DERECHA: hamburguesa -->
+        <div class="nav__right">
+          <button
+            (click)="toggleMobileMenu()"
+            class="nav__burger"
+            [class.open]="isMobileMenuOpen"
+            aria-label="Abrir menú"
+          >
+            <span class="line"></span>
+            <span class="line"></span>
+            <span class="line"></span>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Overlay (oscurece el fondo al abrir menú) -->
+    <div *ngIf="isMobileMenuOpen" class="mobileMenuOverlay" (click)="toggleMobileMenu()"></div>
+
+    <!-- Menú móvil lateral -->
+    <div *ngIf="isMobileMenuOpen" class="mobileMenu">
+      <a (click)="scrollToAndClose('home')" class="mobileMenu__item">Inicio</a>
+      <a (click)="scrollToAndClose('about')" class="mobileMenu__item">Quiénes Somos</a>
+      <a (click)="scrollToAndClose('services')" class="mobileMenu__item">Servicios</a>
+      <a (click)="scrollToAndClose('portfolio')" class="mobileMenu__item">Portafolio</a>
+      <a (click)="scrollToAndClose('contact')" class="mobileMenu__item">Contacto</a>
+
+      <!-- ✅ Abrir en pestaña nueva como en el footer -->
+      <a href="/politicas-de-privacidad" target="_blank" rel="noopener" class="mobileMenu__item" (click)="toggleMobileMenu()">Privacidad</a>
+      <a href="/terminos-condiciones" target="_blank" rel="noopener" class="mobileMenu__item" (click)="toggleMobileMenu()">Términos</a>
+    </div>
+
+    <!-- MAIN -->
+    <main class="main">
+      <!-- HERO -->
+      <section id="home" class="hero">
+        <div class="hero__bg"></div>
+        <div class="hero__content">
+          <img src="assets/logo-nuestro3.png" alt="Logo de nuestra empresa" class="logo-principal" />
+          <h1 class="hero__title">Innovación en Diseño y Desarrollo Web</h1>
+          <p class="hero__subtitle">Transformamos tus ideas en soluciones digitales potentes para web y móvil.</p>
+          <a href="#contact" class="hero__cta">Comencemos tu proyecto</a>
+        </div>
+      </section>
+
+      <!-- ABOUT -->
+      <section id="about" class="section section--about">
+        <div class="container">
+          <h2 class="section__title">Quiénes Somos</h2>
+
+          <div class="about">
+            <!-- Texto -->
+            <div class="about__text">
+              <p>
+                Somos <strong class="text-brand">Graciela Theiler</strong> y
+                <strong class="text-brand">Daniel Segall</strong>, fundadores de
+                DSGTech. Con años de experiencia y pasión por la tecnología y el
+                diseño, creamos soluciones digitales que hacen la diferencia.
+              </p>
+              <p>
+                Nuestra misión es ayudar a emprendedores y empresas con
+                <strong>páginas web y aplicaciones móviles</strong> robustas,
+                intuitivas y estéticamente atractivas.
+              </p>
+            </div>
+
+            <!-- Figura / Burbuja -->
+            <div class="about__figure">
+              <figure class="founders-bubble">
+                <img
+                  src="assets/juntos-800x800.jpg"
+                  alt="Graciela Theiler y Daniel Segall, DSGTech"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <figcaption class="bubble-caption">DSGTech</figcaption>
+              </figure>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- TEAM -->
+      <section id="equipo" class="section team-photos-section">
+        <div class="container">
+          <h2 class="section__title">Nuestro Equipo</h2>
+        <p class="section__subtitle">Conoce a quienes hacen posible este proyecto.</p>
+          <div class="team-photos-grid">
+            <div class="team-member">
+              <img src="assets/graciela.png" alt="Graciela Theiler" class="team-member__img" />
+              <h3 class="team-member__name">Graciela Theiler</h3>
+              <p class="team-member__role">Diseñadora de Software</p>
+            </div>
+            <div class="team-member">
+              <img src="assets/daniel.png" alt="Daniel Segall" class="team-member__img" />
+              <h3 class="team-member__name">Daniel Segall</h3>
+              <p class="team-member__role">Desarrollador Web y Aplicaciones Digitales</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SERVICIOS -->
+      <section id="services" class="section section--alt">
+        <div class="container">
+          <h2 class="section__title">Nuestros Servicios</h2>
+
+          <div class="cards">
+            <article class="card">
+              <div class="card__iconWrap">
+                <svg class="card__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M3 7h18M5 7l1 12h12l1-12M8 7V5a4 4 0 118 0v2"></path>
+                </svg>
+              </div>
+              <h3 class="card__title">Diseño y Desarrollo Web</h3>
+              <p class="card__text">
+                Sitios modernos, rápidos y responsive. Desde landing pages hasta portales a medida.
+              </p>
+            </article>
+
+            <article class="card">
+              <div class="card__iconWrap">
+                <svg class="card__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
+                </svg>
+              </div>
+              <h3 class="card__title">Apps Móviles</h3>
+              <p class="card__text">
+                Aplicaciones nativas o híbridas para iOS y Android con UX efectiva.
+              </p>
+            </article>
+
+            <article class="card">
+              <div class="card__iconWrap">
+                <svg class="card__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M9 17v-2m3 2v-4m3 4v-6m2 2h2m0 0V9a2 2 0 00-2-2h-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v2H3a2 2 0 00-2 2v10a2 2 0 002 2h18a2 2 0 002-2V9a2 2 0 00-2-2h-2z"></path>
+                </svg>
+              </div>
+              <h3 class="card__title">Consultoría Digital</h3>
+              <p class="card__text">
+                Acompañamiento estratégico para que tu proyecto crezca con tecnología.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- PORTAFOLIO -->
+      <section id="portfolio" class="section">
+        <div class="container">
+          <h2 class="section__title">Nuestro Portafolio</h2>
+
+          <div class="portfolio">
+            <article class="portfolioCard">
+              <img src="https://placehold.co/600x400/818CF8/FFFFFF?text=Turnos+Medicos" alt="Sistema de Turnos Médicos" class="portfolioCard__img" />
+              <div class="portfolioCard__body">
+                <h3 class="portfolioCard__title">Sistema de Turnos Médicos</h3>
+                <p class="portfolioCard__text">Gestión de citas y optimización de atención en consultorios y clínicas.</p>
+                <div class="portfolioCard__tags">
+                  <span class="tag">Angular</span><span class="tag">Node.js</span><span class="tag">MongoDB</span>
+                </div>
+                <a href="#" class="portfolioCard__link">Ver Detalles
+                  <svg class="portfolioCard__linkIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                  </svg>
+                </a>
+              </div>
+            </article>
+
+            <article class="portfolioCard">
+              <img src="https://placehold.co/600x400/9333ea/FFFFFF?text=Laboratorio+Clinico" alt="Laboratorio de Análisis Clínicos" class="portfolioCard__img" />
+              <div class="portfolioCard__body">
+                <h3 class="portfolioCard__title">Laboratorio de Análisis Clínicos</h3>
+                <p class="portfolioCard__text">Muestras, resultados y pacientes integrados en una sola plataforma.</p>
+                <div class="portfolioCard__tags">
+                  <span class="tag">NestJS</span><span class="tag">PostgreSQL</span><span class="tag">Docker</span>
+                </div>
+                <a href="#" class="portfolioCard__link">Ver Detalles
+                  <svg class="portfolioCard__linkIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                  </svg>
+                </a>
+              </div>
+            </article>
+
+            <article class="portfolioCard">
+              <img src="https://placehold.co/600x400/c026d3/FFFFFF?text=Pilates+Agenda" alt="Agenda de Turnos Pilates" class="portfolioCard__img" />
+              <div class="portfolioCard__body">
+                <h3 class="portfolioCard__title">Agenda de Turnos Pilates</h3>
+                <p class="portfolioCard__text">Reservas simples y calendario visual para estudios de pilates.</p>
+                <div class="portfolioCard__tags">
+                  <span class="tag">Vue</span><span class="tag">Firebase</span><span class="tag">Mobile</span>
+                </div>
+                <a href="#" class="portfolioCard__link">Ver Detalles
+                  <svg class="portfolioCard__linkIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                  </svg>
+                </a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONTACTO (component) -->
+      <section id="contact" class="section section--contact">
+        <div class="container">
+          <h2 class="section__title">Contáctanos</h2>
+          <p class="section__subtitle">
+            ¿Tienes una idea en mente o necesitas un presupuesto? Completa el formulario
+            o escríbenos directamente por WhatsApp.
+          </p>
+          <app-contact></app-contact>
+        </div>
+      </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="footer__wrap">
+        <p>&copy; {{ currentYear }} DSGTech. Todos los derechos reservados.</p>
+        <p>Diseñado y desarrollado por Daniel Segall y Graciela Theiler.</p>
+        <div class="footer__links">
+          <a href="/politicas-de-privacidad" target="_blank" rel="noopener" class="footer__link">Política de Privacidad</a>
+          <span class="footer__sep">|</span>
+          <a href="/terminos-condiciones" target="_blank" rel="noopener" class="footer__link">Términos y Condiciones</a>
+        </div>
+      </div>
+    </footer>
+  </div>
+</ng-container>
+
+<!-- ✅ Páginas legales (solo cuando es una ruta legal) -->
+<router-outlet *ngIf="isLegalPage"></router-outlet>
