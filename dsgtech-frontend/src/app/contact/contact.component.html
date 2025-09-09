@@ -1,3 +1,34 @@
+<!-- Toast de éxito -->
+<div
+  class="toast toast--success animate-fade-in"
+  *ngIf="showSuccess"
+  role="status"
+  aria-live="polite">
+  <span class="toast__icon" aria-hidden="true">
+    <svg viewBox="0 0 24 24" width="20" height="20">
+      <path fill="currentColor" d="M9 16.2l-3.5-3.5L4 14.2l5 5 11-11-1.5-1.5z"/>
+    </svg>
+  </span>
+  <span class="toast__text">{{ successMsg || '¡Gracias! Tu mensaje fue enviado.' }}</span>
+  <button class="toast__close" (click)="showSuccess=false" aria-label="Cerrar">×</button>
+</div>
+
+<!-- Toast de error -->
+<div
+  class="toast toast--error animate-fade-in"
+  *ngIf="showError"
+  role="alert"
+  aria-live="assertive">
+  <span class="toast__icon" aria-hidden="true">
+    <svg viewBox="0 0 24 24" width="20" height="20">
+      <path fill="currentColor" d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"/>
+    </svg>
+  </span>
+  <span class="toast__text">{{ errorMsg || 'No se pudo enviar. Intenta de nuevo.' }}</span>
+  <button class="toast__close" (click)="showError=false" aria-label="Cerrar">×</button>
+</div>
+
+<!-- FORMULARIO -->
 <form class="contact__form" (ngSubmit)="enviarContacto()" #contactForm="ngForm">
   <div class="field">
     <label for="name" class="field__label">Nombre completo</label>
@@ -29,4 +60,3 @@
     WhatsApp Daniel
   </a>
 </div>
-

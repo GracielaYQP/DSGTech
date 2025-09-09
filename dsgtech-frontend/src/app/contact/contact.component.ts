@@ -11,10 +11,27 @@ import { FormsModule } from '@angular/forms';
 })
 export class ContactComponent {
   formData = { name: '', email: '', message: '' };
+  showSuccess = false;
+  showError = false;
+  successMsg = '';
+  errorMsg = '';
+
 
   enviarContacto() {
-    alert(`Gracias ${this.formData.name}, recibimos tu mensaje ✅`);
-    this.formData = { name: '', email: '', message: '' };
+    // acá va tu lógica real de envío (servicio, API, etc.)
+    // Ejemplo simulado:
+    if (this.formData.name && this.formData.email && this.formData.message) {
+      this.successMsg = '¡Gracias! Te responderemos pronto.';
+      this.showSuccess = true;
+      this.showError = false;
+      setTimeout(() => this.showSuccess = false, 5000);
+      this.formData = { name: '', email: '', message: '' };
+    } else {
+      this.errorMsg = 'Completa todos los campos.';
+      this.showError = true;
+      this.showSuccess = false;
+      setTimeout(() => this.showError = false, 5000);
+    }
   }
 }
 
