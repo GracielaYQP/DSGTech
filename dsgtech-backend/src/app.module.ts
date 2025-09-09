@@ -1,11 +1,13 @@
 import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
+import { ConfigModule } from '@nestjs/config';
 import { PortfolioModule } from './portfolio/portfolio.module';
+import { ContactModule } from './contact/contact.module';
 
 @Module({
-  imports: [PortfolioModule], // Añade el módulo de portafolio aquí
-  controllers: [AppController],
-  providers: [AppService],
+  imports: [
+    ConfigModule.forRoot({ isGlobal: true }), // ← lee .env
+    PortfolioModule,
+    ContactModule, 
+  ],
 })
 export class AppModule {}
