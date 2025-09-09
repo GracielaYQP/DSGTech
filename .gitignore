@@ -1,96 +1,38 @@
-# =============== BACKEND (NestJS) ===============
-/backend/dist
-/backend/node_modules
-/backend/build
+# ====== GENERALES (monorepo Angular + Nest) ======
+**/node_modules/
+**/dist/
+**/build/
+**/.angular/
+**/coverage/
+**/.cache/
+**/tmp/
+**/.tmp/
+**/.sass-cache/
 
 # Logs
-logs
 *.log
 npm-debug.log*
-pnpm-debug.log*
 yarn-debug.log*
-yarn-error.log*
+pnpm-debug.log*
 lerna-debug.log*
 
-# OS
-.DS_Store
-
-# Tests
-/backend/coverage
-/.nyc_output
-
-# IDEs and editors
-/.idea
-.project
-.classpath
-.c9/
-*.launch
-.settings/
-*.sublime-workspace
-
-# IDE - VSCode
-.vscode/*
-!.vscode/settings.json
-!.vscode/tasks.json
-!.vscode/launch.json
-!.vscode/extensions.json
-
-# dotenv
+# Entornos (no subir credenciales)
 .env
 .env.*
 !.env.example
 
-# temp directory
-.temp
-.tmp
-
-# Runtime data
-pids
-*.pid
-*.seed
-*.pid.lock
-
-# Diagnostic reports
-report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
-
-
-# =============== FRONTEND (Angular) ===============
-/frontend/dist
-/frontend/tmp
-/frontend/out-tsc
-/frontend/bazel-out
-/frontend/node_modules
-
-# Logs
-npm-debug.log
-yarn-error.log
-
-# IDEs
+# IDE / OS
+.vscode/
 .idea/
-.project
-.classpath
-.c9/
-*.launch
-.settings/
-*.sublime-workspace
-
-# VSCode
-.vscode/*
-!.vscode/settings.json
-!.vscode/tasks.json
-!.vscode/launch.json
-!.vscode/extensions.json
-.history/*
-
-# Angular cache
-/.angular/cache
-.sass-cache/
-/connect.lock
-/coverage
-/libpeerconnection.log
-testem.log
-/typings
-
-# OS
 .DS_Store
 Thumbs.db
+
+# ====== ESPECÍFICO DEL PROYECTO ======
+dsgtech-backend/dist/
+dsgtech-backend/node_modules/
+dsgtech-backend/coverage/
+
+dsgtech-frontend/dist/
+dsgtech-frontend/node_modules/
+dsgtech-frontend/.angular/
+dsgtech-frontend/coverage/
