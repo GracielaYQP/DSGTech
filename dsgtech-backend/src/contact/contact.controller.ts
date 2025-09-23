@@ -1,14 +1,21 @@
+// contact.controller.ts
 import { Body, Controller, Post } from '@nestjs/common';
-import { ContactService } from './contact.service';
-import { ContactDto } from './dto/contact.dto';
+import { MailService } from '../mail/mail.service';
+import { IsEmail, IsNotEmpty } from 'class-validator';
+
+class ContactDto {
+  @IsNotEmpty() name!: string;
+  @IsEmail() email!: string;
+  @IsNotEmpty() message!: string;
+}
 
 @Controller('contact')
 export class ContactController {
-  constructor(private readonly contactService: ContactService) {}
+  constructor(private readonly mail: MailService) {}
 
   @Post()
-  async enviar(@Body() dto: ContactDto) {
-    return this.contactService.enviar(dto);
+  async send(@Body() dto: ContactDto) {
+    await this.mail.enviarContacto(dto);
+    return { ok: true };
   }
 }
-

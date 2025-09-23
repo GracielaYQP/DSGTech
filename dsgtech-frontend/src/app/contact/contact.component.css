@@ -32,6 +32,7 @@
 }
 
 .field__input {
+  background-color: #d0cef6;
   margin-top: .35rem;
   width: 100%;
   box-sizing: border-box;

@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-contact',
-  standalone: true,                  // 👈 importante
+  standalone: true,                  
   imports: [CommonModule, FormsModule],
   templateUrl: './contact.component.html',
   styleUrls: ['./contact.component.css']
@@ -16,22 +17,28 @@ export class ContactComponent {
   successMsg = '';
   errorMsg = '';
 
+  constructor(private http: HttpClient) {}
+
 
   enviarContacto() {
-    // acá va tu lógica real de envío (servicio, API, etc.)
-    // Ejemplo simulado:
-    if (this.formData.name && this.formData.email && this.formData.message) {
-      this.successMsg = '¡Gracias! Te responderemos pronto.';
-      this.showSuccess = true;
-      this.showError = false;
-      setTimeout(() => this.showSuccess = false, 5000);
-      this.formData = { name: '', email: '', message: '' };
-    } else {
-      this.errorMsg = 'Completa todos los campos.';
-      this.showError = true;
-      this.showSuccess = false;
-      setTimeout(() => this.showError = false, 5000);
-    }
+    const { name, email, message } = this.formData;
+    this.showError = this.showSuccess = false;
+
+    this.http.post('/api/contact', { name, email, message })  // ajustá baseUrl
+      .subscribe({
+        next: () => {
+          this.successMsg = '¡Gracias! Te responderemos pronto.';
+          this.showSuccess = true;
+          this.formData = { name: '', email: '', message: '' };
+          setTimeout(() => this.showSuccess = false, 5000);
+        },
+        error: (err) => {
+          console.error(err);
+          this.errorMsg = 'No se pudo enviar. Intenta de nuevo.';
+          this.showError = true;
+          setTimeout(() => this.showError = false, 5000);
+        }
+      });
   }
 }
 

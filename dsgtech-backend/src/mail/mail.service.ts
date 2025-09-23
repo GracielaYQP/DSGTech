@@ -21,11 +21,11 @@ export class MailService implements OnModuleInit {
   }
 
   async enviarContacto(data: { name: string; email: string; message: string }) {
-    const { name, email, message } = data;
+      const { name, email, message } = data;
 
-    const info = await this.transporter.sendMail({
-      from: `"DSGTech Web" <${process.env.SMTP_USER || 'no-reply@local.dev'}>`,
-      to: process.env.CONTACT_TO || 'dev@local.dev',
+      const info = await this.transporter.sendMail({
+      from: `"DSGTech Web" <${process.env.SMTP_USER || 'no-reply@thysetech.com'}>`,
+      to: process.env.CONTACT_TO || 'contact@thysetech.com',
       subject: `Nuevo contacto de ${name}`,
       replyTo: email,
       text: `Nombre: ${name}\nEmail: ${email}\n\n${message}`,
@@ -36,13 +36,5 @@ export class MailService implements OnModuleInit {
         <p><b>Mensaje:</b><br/>${message.replace(/\n/g,'<br/>')}</p>
       `,
     });
-
-    // Ayudas en modo TEST
-    if (process.env.MAIL_PROVIDER?.toLowerCase() === 'ethereal') {
-      const url = nodemailer.getTestMessageUrl(info);
-      if (url) console.log('🔗 Vista previa Ethereal:', url);
-    } else if (!process.env.MAIL_PROVIDER || process.env.MAIL_PROVIDER === 'dev') {
-      console.log('🧪 Mail DEV (JSON/stream):', info);
-    }
   }
 }
