@@ -1,17 +1,38 @@
-
-
-/* Custom styles */
 html {
   scroll-behavior: smooth;
+  max-width: 100%;
+  overflow-x: clip;
+  margin: 0;            
+  padding: 0;
 }
 body {
   font-family: 'Inter', sans-serif;
+  max-width: 100%;
+  overflow-x: clip;
+  margin: 0;          
+  padding: 0;
+}
+.main{
+  padding-top: var(--nav-h);
+}
+
+
+img, video, svg, canvas {
+  max-width: 100%;
+  height: auto;
+  display: block;
 }
 
 :root{
-  --thyse-green: #AAF350;  /* verde del logo */
-  --thyse-mid:   #6FD9FF;  /* turquesa medio */
-  --thyse-blue:  #3EA6FF;  /* azul del logo */
+  --thyse-green: #AAF350;  
+  --thyse-mid:   #6FD9FF; 
+  --thyse-blue:  #3EA6FF;
+  --nav-h: 90px;        
+  --container-x: 1.5rem;  
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
 }
 
 /* ====== Estilo base + fallback sólido ====== */
