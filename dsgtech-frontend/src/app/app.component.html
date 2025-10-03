@@ -198,14 +198,14 @@
           <div class="portfolio">
             <article class="portfolioCard">
               <img
-                  [ngSrc]="'/img/uri-thumb-720.webp'"
+                  [ngSrc]="'/img/dulce-720.webp'"
                   width="720" height="405"
-                  alt="Promoción de Servicios - captura"
+                  alt="Promoción de Productos - captura"
                   sizes="(max-width: 768px) 92vw, 720px"
                   srcset="
-                    /img/uri-thumb-360.webp 360w,
-                    /img/uri-thumb-720.webp 720w,
-                    /img/uri-thumb-1080.webp 1080w
+                    /img/dulce-360.webp 360w,
+                    /img/dulce-720.webp 720w,
+                    /img/dulce-1080.webp 1080w
                   "
                   class="thumb"
                 />
@@ -216,15 +216,23 @@
                 <div class="portfolioCard__tags">
                   <span class="tag">Angular</span><span class="tag">NestJS</span>
                 </div>
-              <button type="button"
-                      class="btn-portfolio"
-                      (click)="openVideo('/videos/uri.mp4')">
-                Ver Detalles
-                <svg class="btn-portfolio__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-                </svg>
-              </button>
+                <button type="button"
+                        class="btn-portfolio"
+                        (click)="openVideo('/videos/dulce-720p.mp4')">
+                  Ver Detalles
+                  <svg class="btn-portfolio__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                          d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                  </svg>
+                </button>
+                <p class="portfolioCard__url">
+                  <a href="https://dulcematilda.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Abrir sitio Dulce Matilda en una nueva pestaña">
+                    https://dulcematilda.com
+                  </a>
+                </p>
               </div>
             </article>
 
@@ -247,19 +255,26 @@
                 <div class="portfolioCard__tags">
                   <span class="tag">NestJS</span><span class="tag">Angular</span>
                 </div>
-
-              <button type="button"
-                      class="btn-portfolio"
-                      (click)="openVideo('videos/uri-720p.mp4')">
-                Ver Detalles
-                <svg class="btn-portfolio__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-                </svg>
-              </button>
-
+                <button type="button"
+                        class="btn-portfolio"
+                        (click)="openVideo('videos/uri-720p.mp4')">
+                  Ver Detalles
+                  <svg class="btn-portfolio__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                          d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                  </svg>
+                </button>
+                <p class="portfolioCard__url">
+                  <a href="https://uri-fpv.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Abrir sitio URI.FPV en una nueva pestaña">
+                    https://uri-fpv.com
+                  </a>
+                </p>
               </div>
             </article>
+
             <article class="portfolioCard">
               <img
                   [ngSrc]="'/img/lucia-thumb-720.webp'"
@@ -280,18 +295,28 @@
                 <div class="portfolioCard__tags">
                   <span class="tag">NestJS</span><span class="tag">PostgreSQL</span><span class="tag">Angular</span><span class="tag">Android</span>
                 </div>
-              <button type="button"
-                      class="btn-portfolio"
-                      (click)="openVideo('/videos/lucia-720p.mp4')">
-                Ver Detalles
-                <svg class="btn-portfolio__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-                </svg>
-              </button>
+                <button type="button"
+                        class="btn-portfolio"
+                        (click)="openVideo('/videos/lucia-720p.mp4')">
+                  Ver Detalles
+                  <svg class="btn-portfolio__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                          d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                  </svg>
+                </button>
+                <p class="portfolioCard__url">
+                  <a href="https://luciacarlettapilates.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Abrir sitio Lucía Carletta Pilates en una nueva pestaña">
+                    https://luciacarlettapilates.com
+                  </a>
+                </p>
+              
               </div>
             </article>
-                        <!-- MODAL de video -->
+
+            <!-- MODAL de video -->
             <div class="modal" *ngIf="videoModal.open" (click)="closeVideo()">
               <div class="modal__dialog" (click)="$event.stopPropagation()">
                 <button class="modal__close" aria-label="Cerrar" (click)="closeVideo()">×</button>
